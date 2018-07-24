@@ -1,5 +1,7 @@
 package com.hy.springboot2;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.util.function.BinaryOperator;
 
 //@SpringBootApplication
@@ -9,8 +11,15 @@ public class Application {
     private BinaryOperator<Integer> a = (x, y) -> x + y;
 
     public static void main(String[] args) throws InterruptedException {
-//		SpringApplication.run(Application.class, args);  DDCSS   SSCSS     ISISD     SDCDC    CCSC   SSCIC  ICCSC    CISCS
+//		SpringApplication.run(Application.class, args);
+        BufferedImage genbuffer = GenerateImageCode.genbuffer();
+        ImageIcon imageIcon = new ImageIcon(genbuffer);
 
+        JFrame jFrame = new JFrame();
+        JLabel imgLabel = new JLabel(imageIcon);
+
+        jFrame.getLayeredPane().add(imgLabel, new Integer(Integer.MIN_VALUE));
+        jFrame.setVisible(true);
     }
 //    public void sy() {
 //        lock.lock();
@@ -34,7 +43,7 @@ public class Application {
 //        }
 //        System.out.println("出了sy1");
 //        lock.unlock();
-//    }丄
+//    }
 
     class ss {
         void print() {
