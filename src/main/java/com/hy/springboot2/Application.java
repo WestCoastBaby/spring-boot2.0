@@ -9,8 +9,7 @@ import java.util.function.BinaryOperator;
 public class Application {
 
     //
-    private BinaryOperator<Integer> a = (x, y) -> x + y;
-
+    private static BinaryOperator<String> a = (x, y) -> x + y;
 
 
     public static void main(String[] args) {
@@ -19,10 +18,10 @@ public class Application {
         ss.add("1");
         ss.add("2");
         ss.add("3");
-        ss.add(2,"a");
+        ss.add(2, "a");
         ss.remove(3);
 
-        ss.forEach(System.out::println);
+        ss.forEach(o -> a.apply(o, o));
         System.out.println(ss.size());
     }
 
