@@ -5,7 +5,7 @@ import com.entity.Person;
 import java.util.*;
 import java.util.function.BinaryOperator;
 
-//@SpringBootApplication
+//@SpringBootApplication   asdad
 public class Application {
 
     //
