@@ -1,7 +1,8 @@
 package com.hy.springboot2;
 
-import javax.swing.*;
-import java.awt.image.BufferedImage;
+import com.entity.Person;
+
+import java.util.*;
 import java.util.function.BinaryOperator;
 
 //@SpringBootApplication
@@ -10,17 +11,22 @@ public class Application {
     //
     private BinaryOperator<Integer> a = (x, y) -> x + y;
 
-    public static void main(String[] args) throws InterruptedException {
-//		SpringApplication.run(Application.class, args);
-        BufferedImage genbuffer = GenerateImageCode.genbuffer();
-        ImageIcon imageIcon = new ImageIcon(genbuffer);
 
-        JFrame jFrame = new JFrame();
-        JLabel imgLabel = new JLabel(imageIcon);
 
-        jFrame.getLayeredPane().add(imgLabel, new Integer(Integer.MIN_VALUE));
-        jFrame.setVisible(true);
+    public static void main(String[] args) {
+        ArrayList<String> ss = new ArrayList<>();
+        ss.add("0");
+        ss.add("1");
+        ss.add("2");
+        ss.add("3");
+        ss.add(2,"a");
+        ss.remove(3);
+
+        ss.forEach(System.out::println);
+        System.out.println(ss.size());
     }
+
+
 //    public void sy() {
 //        lock.lock();
 //        System.out.println("进入sy");

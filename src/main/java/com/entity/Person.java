@@ -1,5 +1,6 @@
 package com.entity;
 
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -12,33 +13,13 @@ import java.util.concurrent.TimeUnit;
 public class Person implements Serializable {
 
     private static final long serialVersionUID = -1209933572394583693L;
-    private int age;
     private final Student student = new Student();
 
-    private User user = new User();
+    private final User user = new User();
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public int getAge() {
-        return age;
-    }
 
     public String lockStudent() {
-        synchronized (student){
+        synchronized (user) {
             System.out.println("lockStudent");
             try {
                 TimeUnit.SECONDS.sleep(12);
@@ -47,5 +28,14 @@ public class Person implements Serializable {
             }
         }
         return "OK";
+    }
+
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public User getUser() {
+        return user;
     }
 }
